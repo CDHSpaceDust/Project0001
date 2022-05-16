@@ -2,10 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#pragma comment(lib, "OpenGL32")
-
-
-
+#pragma comment(lib,"opengl32")
 
 static void error_callback(int error, const char* description)
 {
@@ -38,30 +35,31 @@ int main(void)
         glfwGetFramebufferSize(window, &width, &height);
         ratio = width / (float)height;
 
-
-        glClearColor(0.3f, 0.3f, 0.3f, 1);
+        glClearColor(0.7f, 0.7f, 0.7f, 1);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glEnable(GL_BLEND);
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+        /*glBegin(GL_POINTS);
+        glColor3f(1.0f, 0.0f, 0.0f);
+        glVertex2f(0.0f, 0.0f);
+        glEnd();*/
 
         glBegin(GL_TRIANGLES);
-        glColor4f(1.0f, 0.0f, 0.0f, 0.3f);
-        glVertex3f(0.0f, 1.0f, 0.0f);
-        glColor4f(1.0f, 0.0f, 0.0f, 0.3f);
-        glVertex3f(1.0f, -1.0f, 0.0f);
-        glColor4f(1.0f, 0.0f, 0.0f, 0.3f);
-        glVertex3f(-1.0f, -1.0f, 0.0f);
+        glColor3f(1.0f, 0.0f, 0.0f);
+        glVertex2f(0.0f, 0.0f);
+        glVertex2f(1.0f, 1.0f);
+        glColor3f(0.0f, 0.0f, 1.0f);
+        glVertex2f(1.0f, -1.0f);
         glEnd();
 
-        glBegin(GL_TRIANGLES);
-        glColor4f(1.0f, 1.0f, 0.0f, 0.3f);
-        glVertex3f(0.0f, 1.0f, 0.0f);
-        glColor4f(1.0f, 1.0f, 0.0f, 0.3f);
-        glVertex3f(1.0f, -1.0f, 0.0f);
-        glColor4f(1.0f, 0.0f, 1.0f, 0.3f);
-        glVertex3f(-1.0f, -1.0f, 0.0f);
+        glBegin(GL_LINES);
+        glColor3f(1.0f, 1.0f, 0.0f);
+        glVertex2f(0.0f, 0.0f);
+        glVertex2f(-1.0f, -1.0f);
+        glColor3f(0.0f, 1.0f, 1.0f);
+        glVertex2f(0.0f, 0.0f);
+        glVertex2f(-1.0f, 1.0f);
         glEnd();
+
 
         glfwSwapBuffers(window);
         glfwPollEvents();
